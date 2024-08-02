@@ -1,55 +1,91 @@
 "use strict;"
 
-//1. 
-// const current_user_name = prompt(`Please enter your name`);
-// function greet(name ) {
-
-//         if (name === null) {
-//                 name = "Alex"
-//                 alert(`Hello ${name}`);
-//         }
-        
-// }
-// greet(`${current_user_name}`);
-
-// let user_width = prompt(`Enter width`);
-// let user_height = prompt(`Enter height`);
-// function getSquare(width, height){
-//         return width * height
-// let squareResult = getSquare(user_width, user_height);
-// alert(`${squareResult}`);
-// let greet = function(){
-//         alert(`Hello World!!!`)
-// greet();
-// let getArea = (width, height) => {
-//         return width * height;
-// }
-// getArea(5, 5);
-// alert(getArea(5, 5));
-
-/*Напишіть функцію min(a, b), яка повертає менше з двох чисел a та b.
-
-Наприклад:
-
-min(2, 5) == 2
-min(3, -1) == -1
-min(1, 1) == 1*/
-
-// function min(number_a, number_b) {
-//         if (number_a > number_b) {
-//                 alert(`${number_b}`);
-//         } else {
-//                 alert(`${number_a}`);
-//         } 
-// }
-
-// min(2, 5);
-// min(3, -1);
-// min(1, 1);
-
-function pow(a, b){
-        return a ** b;
+/*1. Створи об'єкт, що описує автомобіль 
+(виробник, модель, рік випуску, середня швидкість, 
+обсяг паливного баку, середня витрата палива на 100 км., водії), 
+і наступні методи для роботи з цим об'єктом:
+*/
+//1 Метод, який виводить на екран інформацію про автомобіль.
+const drivers_list = {
+        driver1: 'Alex Tim',
+        driver2: 'Jack Jonhson',
+        driver3: 'Jack Sparow',
+        driver4: 'Michel Jakson'
 }
-pow(3, 2);
 
-alert(pow(1, 100))
+const car_information = {
+        producer: 'Ford',
+        model: 'Escort',
+        'year of production': 2016,
+        'everage speed': '110 km/h',
+        'the volume of the fuel tank': '60 liters',
+        'average fuel consumption per 100 km': '5 liters',
+        drivers(){ 
+                return `${drivers_list.driver1},
+                ${drivers_list.driver2},
+                ${drivers_list.driver3},
+                ${drivers_list.driver4}
+        `},
+        fullinformation(){
+                return `${this.producer},
+                 ${this.model},
+                 ${this["year of production"]},
+                 ${this["everage speed"]},
+                 ${this["the volume of the fuel tank"]},
+                 ${this["average fuel consumption per 100 km"]},
+                 ${this.drivers()}`
+        },
+        nameInTheList: function(){
+                switch(drivers_name){
+                        case 'Alex':
+                        alert(`The Alex Tim is in the list.`);
+                        break;
+                        case 'Jack':
+                        alert(`This Jack Jonhson is in the list.`);
+                        break;
+                        case 'Sparow':
+                        alert(`This Jack Sparow is in the list.`);
+                        break;
+                        case 'Michel':
+                        alert(`This Michel Jakson is in the list.`);
+                        break;
+                        case 'Valeriy':
+                        alert(`This Valeriy Timchenko is in the list.`);
+                        break;
+                }
+        },
+        patrol: function(){
+                let patrolValue = (user_distance/100)*5;
+        },
+        time: function(){
+                let resultOfRoad;
+                let timeValue = (user_distance/110);
+                if (timeValue > 4) {
+                        let additionalTime = timeValue/4; 
+                       return Math.floor(resultOfRoad = timeValue + additionalTime);
+                } 
+        }
+}
+
+alert(car_information.fullinformation());
+
+//2 Додавання ім’я водія у список
+drivers_list.driver5 = 'Valeriy Timchenko';
+
+for (const key in drivers_list) {
+        alert(`${key} = ${drivers_list[key]}`);
+        console.log(`${key} = ${drivers_list[key]}`);
+}
+//3 Перевірка водія на наявність його ім’я у списку
+
+const drivers_name = prompt('Please, enter drivers name');
+
+car_information.nameInTheList();
+
+//4 Підрахунок необхідного часу та кількості 
+//палива для подолання переданої відстані з середньою швидкістю. 
+//Враховуй, що через кожні 4 години дороги водієві необхідно робити перерву на 1 годину. 
+
+const user_distance = prompt('Please enter the distance');
+
+alert(car_information.time());
